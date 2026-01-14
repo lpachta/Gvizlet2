@@ -1,0 +1,100 @@
+/* DEFAULT CARD */
+
+.card {
+  width: 18rem; /* sirka */
+  min-height: 22.5rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-inner {
+  position: relative; 
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+
+/* FLASHCARDS */
+
+.card.view {
+  perspective: 1000px; /* 3D efekt na otaceni */
+  cursor: pointer; /* klikni na me */
+}
+
+.card.view .card-inner{
+  transition: transform 0.6s; /* animace otaceni */
+  transform-style: preserve-3d; /* 3D efekt */
+}
+
+.card.view .card-front {
+  position: relative;
+  backface-visibility: hidden;
+  z-index: 2;
+}
+
+.card.view .card-back {
+  position: absolute; /* obe strany jsou na sobe */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* zadni strana neni videt */
+  transform: rotateY(180deg); /* zadni strana zacina otocena */
+}
+
+.card.view .text-only .card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+
+.card.view .img-only img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+}
+.card.view .img-only .card-body {
+  width: 0%;
+  height: 0%;
+}
+
+
+/* EDITOR */
+
+.card.add{
+  width: 36rem;
+  cursor: default;
+}
+
+.card.add .card-front,
+.card.add .card-back {
+  position: relative;
+  width: 50%;
+  backface-visibility: visible;
+  transform: none;
+}
+
+.card.add .card-inner {
+  position: static;
+  display: flex;
+  transform: none;
+}
+
+
+/* OTHER */
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg); /* flipped karta ma byt flipped o 180deg */
+}
+
+.unselectable {
+  user-select: none;
+}
+
