@@ -1,8 +1,9 @@
 /* DEFAULT CARD */
 
 .card {
-  width: 18rem; /* sirka */
+  width: 18rem; 
   min-height: 22.5rem;
+  height: auto !important; /* overrride bootstrap */
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
